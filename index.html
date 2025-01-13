@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kite Flying Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .sky {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kite {
+            position: absolute;
+            bottom: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fly 5s ease-in-out infinite;
+        }
+
+        .kite-body {
+            width: 100px;
+            height: 100px;
+            background: red;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        }
+
+        .tail {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tail-segment {
+            width: 10px;
+            height: 20px;
+            background: red;
+            margin: 5px 0;
+        }
+
+        .person {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px; /* Further reduced width */
+            height: 60px; /* Further reduced height */
+            background: #654321;
+        }
+
+        .person .head {
+            width: 15px; /* Further reduced width */
+            height: 15px; /* Further reduced height */
+            background: peachpuff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .person .body {
+            width: 15px; /* Further reduced width */
+            height: 45px; /* Further reduced height */
+            background: #654321;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .string {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50%;
+            background: black;
+        }
+
+        .quote {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fly {
+            0%, 100% {
+                transform: translate(-50%, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(-50%, -100px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="quote">Hey Miss Swi and Dhanyamraju I am flying Kite</div>
+        <div class="kite">
+            <div class="kite-body"></div>
+            <div class="tail">
+                <div class="tail-segment"></div>
+                <div class="tail-segment"></div>
+                <div class="tail-segment"></div>
+            </div>
+        </div>
+        <div class="string"></div>
+        <div class="person">
+            <div class="head"></div>
+            <div class="body"></div>
+        </div>
+    </div>
+</body>
+</html>

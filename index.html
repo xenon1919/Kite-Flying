@@ -57,7 +57,7 @@
         .person {
             position: absolute;
             bottom: 10%;
-            left: 50%;
+            left: 45%; /* Adjusted position */
             transform: translateX(-50%);
             width: 30px;
             height: 60px;
@@ -76,6 +76,68 @@
         }
 
         .person .body {
+            width: 15px;
+            height: 45px;
+            background: #654321;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .friend1 {
+            position: absolute;
+            bottom: 10%;
+            left: 40%; /* Adjusted position */
+            transform: translateX(-50%);
+            width: 30px;
+            height: 60px;
+            background: #654321;
+        }
+
+        .friend1 .head {
+            width: 15px;
+            height: 15px;
+            background: peachpuff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .friend1 .body {
+            width: 15px;
+            height: 45px;
+            background: #654321;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .friend2 {
+            position: absolute;
+            bottom: 10%;
+            left: 55%; /* Adjusted position */
+            transform: translateX(-50%);
+            width: 30px;
+            height: 60px;
+            background: #654321;
+        }
+
+        .friend2 .head {
+            width: 15px;
+            height: 15px;
+            background: peachpuff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .friend2 .body {
             width: 15px;
             height: 45px;
             background: #654321;
@@ -120,6 +182,14 @@
             <div class="head"></div>
             <div class="body"></div>
         </div>
+        <div class="friend1">
+            <div class="head"></div>
+            <div class="body"></div>
+        </div>
+        <div class="friend2">
+            <div class="head"></div>
+            <div class="body"></div>
+        </div>
         <canvas id="string" width="800" height="600"></canvas>
     </div>
     <script>
@@ -138,7 +208,7 @@
             ctx.beginPath();
             ctx.moveTo(personX, personY);
             ctx.lineTo(kiteX, kiteY);
-            ctx.strokeStyle = 'black'; // Black thread color
+            ctx.strokeStyle = 'black'; // Black thread
             ctx.lineWidth = 1; // Narrower line width
             ctx.stroke();
         }

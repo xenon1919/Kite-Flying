@@ -59,14 +59,14 @@
             bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px; /* Further reduced width */
-            height: 60px; /* Further reduced height */
+            width: 30px;
+            height: 60px;
             background: #654321;
         }
 
         .person .head {
-            width: 15px; /* Further reduced width */
-            height: 15px; /* Further reduced height */
+            width: 15px;
+            height: 15px;
             background: peachpuff;
             border-radius: 50%;
             position: absolute;
@@ -76,23 +76,13 @@
         }
 
         .person .body {
-            width: 15px; /* Further reduced width */
-            height: 45px; /* Further reduced height */
+            width: 15px;
+            height: 45px;
             background: #654321;
             position: absolute;
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
-        }
-
-        .string {
-            position: absolute;
-            bottom: 25%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 50%;
-            background: black;
         }
 
         .quote {
@@ -126,11 +116,43 @@
                 <div class="tail-segment"></div>
             </div>
         </div>
-        <div class="string"></div>
         <div class="person">
             <div class="head"></div>
             <div class="body"></div>
         </div>
+        <canvas id="string" width="800" height="600"></canvas>
     </div>
+    <script>
+        const kite = document.querySelector('.kite');
+        const stringCanvas = document.getElementById('string');
+        const ctx = stringCanvas.getContext('2d');
+
+        function drawString() {
+            const kiteRect = kite.getBoundingClientRect();
+            const kiteX = kiteRect.left + kiteRect.width / 2;
+            const kiteY = kiteRect.top + kiteRect.height;
+            const personX = window.innerWidth / 2;
+            const personY = window.innerHeight * 0.9;
+
+            ctx.clearRect(0, 0, stringCanvas.width, stringCanvas.height);
+            ctx.beginPath();
+            ctx.moveTo(personX, personY);
+            ctx.lineTo(kiteX, kiteY);
+            ctx.strokeStyle = 'black'; // Black thread color
+            ctx.lineWidth = 1; // Narrower line width
+            ctx.stroke();
+        }
+
+        window.addEventListener('resize', () => {
+            stringCanvas.width = window.innerWidth;
+            stringCanvas.height = window.innerHeight;
+            drawString();
+        });
+
+        window.addEventListener('scroll', drawString);
+
+        setInterval(drawString, 50);
+        drawString(); // Initial draw
+    </script>
 </body>
 </html>
